@@ -93,11 +93,11 @@
 ## 🧩 담당파트 코드리뷰 및 주요 화면 (회원관리 & 게시물관리 담당)
 
 ---
-
-### 👥 회원조회
+### 👥 1️⃣ 회원 조회 및 관리자여부 변경 기능
 <img src="./img/member_list.png" width="700"/>
 
-### 👥 1️⃣ 회원 조회 기능
+#### 🖼️ 코드 화면 
+<img src="./img/code1.png" width="700"/>
 
 ####  문제 상황  
 - 관리자 권한을 **행 단위로 즉시 변경(AJAX)** 하도록 구현했으나,  
@@ -115,54 +115,62 @@
 5. 여러 명 수정 시에도 **한 번의 요청으로 일괄 처리 (POST + submit)** 적용.
 
 ####  핵심 포인트  
-> 실시간 반영보다는 **검증 절차를 강화한 안전성 중심 구조**로 개선.  
+> 실시간 반영보다는 **검증 절차를 강화한 안전성 중심 구조**로 개선.
 
-
-
-### 🏅 회원등급관리
+---
+### 🏅 2️⃣ 회원 등급 관리 기능
 <img src="./img/member_grade.png" width="700"/>
+#### 🖼️ 코드 화면 
+---
+<img src="./img/code2.png" width="700"/>
+#### ⚠️ 문제 상황  
+- 게시글 수 기준으로 등급 상향 조건을 설정했으나  
+  `IN (1,5,10)` 조건 사용 시 **임계점 초과 회원이 목록에서 누락**되는 문제 발생.
 
-### 🗂️ 회원게시물관리
-<img src="./img/member_post_manage.png" width="700"/>
+#### 🔍 원인 분석  
+- 단순 `IN` 조건은 특정 값만 인식하므로  
+  관리자가 확인하기 전에 게시글 수가 증가하면 **조건을 초과하여 목록에서 제외됨.**
 
+#### 💡 해결 방법  
+1. `NVL()` 함수를 사용해 `NULL`인 게시글 수를 `0`으로 변환.  
+2. `HAVING` 절을 사용하여 `COUNT(board_no) >= 1` 조건으로 그룹 필터링.  
+3. “게시글 1개 이상 작성한 모든 회원”을 표시하도록 수정.  
+4. 관리자가 직접 확인 후 등급 상향하도록 변경.
 
+#### 🧠 핵심 포인트  
+> 단순 조건식에서 **집계 기반 필터링(SQL 그룹 로직)** 으로 전환하여  
+> **데이터 누락 문제를 방지.**
 
 ---
 
-## 🧩 코드리뷰 
-```javascript
-$('#updateAdminBtn').on('click', function () {
-  const checked = $('.row-check:checked');
-  if (checked.length === 0) return alert('수정할 회원을 선택하세요.');
-  if (!confirm('관리자 여부를 변경하시겠습니까?')) return;
+### 🗂️ 3️⃣ 회원 게시물 관리 기능
+<img src="./img/member_post_manage.png" width="700"/>
 
-  const form = $('#memberForm');
-  form.attr('action', '/admin/updateAdminStatus')
-      .attr('method', 'POST')
-      .submit();
-});
-✅ jQuery 기반 다중 회원 선택 및 동적 Form 전송 로직 구현
-✅ confirm + 예외처리로 사용자 UX 개선
+---
+#### 🖼️ 코드 화면  
+<img src="./img/code3.png" width="700"/>
+<img src="./img/code3.png" width="700"/>
 
-🧰 기술 스택
-분류	기술
-Frontend	HTML5, CSS3, JavaScript, jQuery
-Backend	Spring Boot 3.x, MyBatis
-Database	Oracle 11g
-Tools	STS, DBeaver, SourceTree, GitHub
+#### ⚠️ 문제 상황  
+- 게시글 공개/비공개 변경 시 **중복 클릭으로 AJAX 요청이 여러 번 전송**되어  
+  데이터 중복 반영 및 서버 부하 문제 발생.
 
+#### 🔍 원인 분석  
+- `change` 이벤트에서 즉시 AJAX 요청을 보냈으나,  
+  클릭 방지 제어가 없어 요청이 연속으로 전송됨.
 
+#### 💡 해결 방법  
+1. 이벤트가 발생한 `<select>`를 `$sel` 변수에 저장.  
+2. 요청 시작 시 `$sel.prop("disabled", true)`로 비활성화.  
+3. AJAX 요청 종료 시 `.always()`로 다시 활성화.  
+4. 요청 중 중복 클릭 방지 및 안정적 응답 처리 구현.
+
+#### 🧠 핵심 포인트  
+> 사용자 인터랙션에 대한 **비동기 요청 제어(AJAX 중복 방지)** 로  
+> UI 안정성 및 서버 부하 개선.
 
 💬 프로젝트 소감
 관리자 기능을 직접 구현하며 데이터 흐름 제어와 Ajax 통신의 중요성을 배웠습니다.
 단순한 CRUD를 넘어서, 사용자 경험 중심의 기능 설계를 고민할 수 있었습니다.
 팀 협업 과정에서 깃 충돌 해결과 커뮤니케이션의 중요성을 깨달았습니다.
 
-🧠 핵심 역량
-Spring Boot + MyBatis 기반 백엔드 설계
-
-SQL JOIN 및 데이터 집계 최적화
-
-jQuery 이벤트 제어 및 Ajax 비동기 로직 구현
-
-Git 브랜치 병합 및 협업 경험
