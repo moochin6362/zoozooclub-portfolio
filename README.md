@@ -1,9 +1,9 @@
-# 🐶 ZOOZOO CLUB | 관리자 회원 관리 기능 포트폴리오
-> 이루강 | 반려동물 커뮤니티 & 쇼핑몰 웹사이트 팀 프로젝트  
+# 🐶 ZOOZOO CLUB | 이루강
+> | 반려동물 커뮤니티 & 쇼핑몰 웹사이트 팀 프로젝트  
 > 담당 파트: **회원조회 / 회원등급관리 / 회원게시물관리**
 
 ## 👥 1. 팀 소개
-
+<img src="./img/team.png" width="700"/>
 **팀명:** 미녀와 야수  
 
 유머 감각과 창의성을 바탕으로, 역할과 성별에 구애받지 않고 자유롭게 아이디어를 나누며 협업하는 팀 문화를 지향합니다.  
@@ -20,12 +20,12 @@
 
 | 분류 | 사용 기술 |
 |------|-------------|
-| **Frontend** | HTML5, CSS3, JavaScript, jQuery |
-| **Backend** | Spring Boot 3.x, MyBatis |
-| **Database** | Oracle 11g |
-| **Server Tool** | STS (Spring Tool Suite), DBeaver |
-| **Version Control** | GitHub, SourceTree |
-| **협업 툴** | Notion, KakaoTalk, Google Drive |
+| **운영체제** | window 11 |
+| **사용언어** | Java, HTML, CSS, JavaScript, SQL |
+| **FrameWork/ Library | FrameWork/ Library |
+| **DB** | Oracle |
+| **Collaboration** | GitHub, SourceTree |
+| **Tool** | Eclipse, Visual studio Code |
 
 ---
 
