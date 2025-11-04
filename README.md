@@ -120,8 +120,9 @@
 ---
 ### 🏅 2️⃣ 회원 등급 관리 기능
 <img src="./img/member_grade.png" width="700"/>
+
 #### 🖼️ 코드 화면 
----
+
 <img src="./img/code2.png" width="700"/>
 ---
 #### ⚠️ 문제 상황  
