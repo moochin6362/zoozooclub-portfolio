@@ -54,11 +54,11 @@
 ### 🗂️ 회원게시물관리
 <img src="./img/member_post_manage.png" width="700"/>
 
-> 💡 `img` 폴더 안에 위 파일명으로 이미지 업로드 시 자동 표시됩니다.
+
 
 ---
 
-## 🧩 코드리뷰 예시
+## 🧩 코드리뷰 
 ```javascript
 $('#updateAdminBtn').on('click', function () {
   const checked = $('.row-check:checked');
@@ -80,8 +80,7 @@ Backend	Spring Boot 3.x, MyBatis
 Database	Oracle 11g
 Tools	STS, DBeaver, SourceTree, GitHub
 
-🎥 시연 영상
-👉 ZOOZOO CLUB 관리자 기능 시연 보러가기
+
 
 💬 프로젝트 소감
 관리자 기능을 직접 구현하며 데이터 흐름 제어와 Ajax 통신의 중요성을 배웠습니다.
