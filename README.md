@@ -4,6 +4,34 @@
 
 ---
 
+1. 팀 소개
+
+팀명: 미녀와 야수
+
+유머 감각과 창의성을 바탕으로, 역할과 성별에 구애받지 않고
+자유롭게 아이디어를 나누며 협업하는 팀 문화를 지향합니다.
+팀명 속 유쾌함처럼, 프로젝트 또한 즐겁고 개성 있게 풀어나가며
+사용자에게도 즐거움을 줄 수 있는 결과물을 목표로 합니다.
+
+프로젝트명: ZOOZOO CLUB
+
+‘ZOO’는 반려동물, ‘CLUB’은 보호자들이 모여 소통하는 커뮤니티를 의미합니다.
+반려동물과 보호자 모두가 함께 즐기고 배우며 필요한 정보를 얻을 수 있는
+따뜻한 온라인 놀이터이자 정보 허브를 지향합니다.
+---
+
+---
+
+⚙️ 2. 기술 스택
+분류	사용 기술
+Frontend	HTML5, CSS3, JavaScript, jQuery
+Backend	Spring Boot 3.x, MyBatis
+Database	Oracle 11g
+Server Tool	STS (Spring Tool Suite), DBeaver
+Version Control	GitHub, SourceTree
+협업 툴	Notion, KakaoTalk, Google Drive
+---
+
 ## 🌱 프로젝트 개요
 **ZOOZOO CLUB**은 반려동물 보호자를 위한 커뮤니티형 쇼핑몰 웹사이트입니다.  
 반려인들이 소통하고, 상품을 구매하며, 체험단과 리뷰를 공유할 수 있는 플랫폼입니다.
